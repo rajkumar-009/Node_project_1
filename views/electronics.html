@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>clothes</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="signin.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 align="center">GST calculation for electronic items.</h1>
+        <br>
+        <div class="card text-center">
+            <div class="card-header">
+                Please enter the original price:
+            </div>
+            <div class="card-body">
+                <input class="form-control" type="text" id="original_price" placeholder="Original price">
+                <br>
+                <br>
+
+                <button class="btn btn-primary" id="generate">Generate price</button>
+            </div>
+
+        </div>
+        <br>
+        <div class="card" id="result">
+            <div class="card-body">
+                GST for electronics is 15%. Therefore the total price is:
+                <br>
+                <br>
+                <div class="alert alert-dark" id="alert">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#result").hide();
+        $("#generate").click(function () {
+            var price = document.getElementById("original_price").value;
+            var oprice = parseInt(price, 10);
+            var gst = oprice * 0.15;
+            var total = oprice + gst;
+            $("#alert").html(oprice + " + " + gst + " = " + total);
+            $("#result").show();
+        });
+
+
+    </script>
+</body>
+
+</html>
